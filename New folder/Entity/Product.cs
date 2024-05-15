@@ -13,6 +13,7 @@
         public long? SoldQuantity { get; set; }
         public string? Author { get; set; }
         public Warehouse? Warehouse { get; set; }
+        public Author Authorobj { get; set; }
         public List<StaffProduct>? staffProducts { get; set; }
     }
 }

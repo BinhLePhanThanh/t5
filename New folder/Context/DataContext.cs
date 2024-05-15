@@ -9,6 +9,7 @@ namespace MIS.Context
         : base(options)
         {
         }
+        public DbSet<Author> Authors { get; set; }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Manager> Managers { get; set; }
         public DbSet<Product> Products { get; set; }
