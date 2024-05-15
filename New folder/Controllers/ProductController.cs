@@ -50,10 +50,15 @@ namespace MIS.Controllers
             if (existingProduct == null)
                 return NotFound();
 
-            existingProduct.Name = product.Name;
-            existingProduct.Description = product.Description;
-            existingProduct.Category = product.Category;
-           
+            existingProduct.Name = product.Name ?? existingProduct.Name;
+            existingProduct.Description = product.Description ?? existingProduct.Description;
+            existingProduct.Category = product.Category ?? existingProduct.Category;
+            existingProduct.Price = product.Price ?? existingProduct.Price;
+            existingProduct.CreatedDate = product.CreatedDate ?? existingProduct.CreatedDate;
+            existingProduct.totalQuantity = product.totalQuantity ?? existingProduct.totalQuantity;
+            existingProduct.RemainingQuantity = product.RemainingQuantity ?? existingProduct.RemainingQuantity;
+            existingProduct.SoldQuantity = product.SoldQuantity ?? existingProduct.SoldQuantity;
+
 
             _productService.UpdateProduct(existingProduct);
             return NoContent();

@@ -8,6 +8,6 @@
         public string? Address { get; set; }
         public string? Genre { get; set; }
         public bool? Status { get; set; }
-        List<Product> Products { get; set; }
+        List<Product>? Products { get; set; }
     }
 }

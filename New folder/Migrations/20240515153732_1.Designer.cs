@@ -12,7 +12,7 @@ using Oracle.EntityFrameworkCore.Metadata;
 namespace MIS.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20240515152731_1")]
+    [Migration("20240515153732_1")]
     partial class _1
     {
         /// <inheritdoc />
@@ -126,10 +126,7 @@ namespace MIS.Migrations
 
                     OraclePropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Author")
-                        .HasColumnType("NVARCHAR2(2000)");
-
-                    b.Property<int>("AuthorobjId")
+                    b.Property<int?>("AuthorobjId")
                         .HasColumnType("NUMBER(10)");
 
                     b.Property<string>("Category")
@@ -154,6 +151,9 @@ namespace MIS.Migrations
                         .HasColumnType("NUMBER(19)");
 
                     b.Property<long?>("WarehouseId")
+                        .HasColumnType("NUMBER(19)");
+
+                    b.Property<long?>("totalQuantity")
                         .HasColumnType("NUMBER(19)");
 
                     b.HasKey("Id");
@@ -378,9 +378,7 @@ namespace MIS.Migrations
                 {
                     b.HasOne("MIS.Entity.Author", "Authorobj")
                         .WithMany()
-                        .HasForeignKey("AuthorobjId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("AuthorobjId");
 
                     b.HasOne("MIS.Entity.Warehouse", "Warehouse")
                         .WithMany("products")

@@ -139,11 +139,11 @@ namespace MIS.Migrations
                     Category = table.Column<string>(type: "NVARCHAR2(2000)", nullable: true),
                     Price = table.Column<long>(type: "NUMBER(19)", nullable: true),
                     CreatedDate = table.Column<DateTime>(type: "TIMESTAMP(7)", nullable: true),
+                    totalQuantity = table.Column<long>(type: "NUMBER(19)", nullable: true),
                     RemainingQuantity = table.Column<long>(type: "NUMBER(19)", nullable: true),
                     SoldQuantity = table.Column<long>(type: "NUMBER(19)", nullable: true),
-                    Author = table.Column<string>(type: "NVARCHAR2(2000)", nullable: true),
                     WarehouseId = table.Column<long>(type: "NUMBER(19)", nullable: true),
-                    AuthorobjId = table.Column<int>(type: "NUMBER(10)", nullable: false)
+                    AuthorobjId = table.Column<int>(type: "NUMBER(10)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -152,8 +152,7 @@ namespace MIS.Migrations
                         name: "FK_Products_Authors_AuthorobjId",
                         column: x => x.AuthorobjId,
                         principalTable: "Authors",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Products_Warehouse_WarehouseId",
                         column: x => x.WarehouseId,
