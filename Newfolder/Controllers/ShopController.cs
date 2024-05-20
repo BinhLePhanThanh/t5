@@ -55,8 +55,7 @@ namespace MIS.Controllers
         [HttpPut("{id}")]
         public IActionResult UpdateShop(int id, Shop shop)
         {
-            if (id != shop.Id)
-                return BadRequest();
+            
 
             var existingShop = _shopService.GetShopById(id);
             if (existingShop == null)

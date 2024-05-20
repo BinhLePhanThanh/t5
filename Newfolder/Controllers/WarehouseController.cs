@@ -55,8 +55,7 @@ namespace MIS.Controllers
         [HttpPut("{id}")]
         public IActionResult UpdateWarehouse(long id, Warehouse warehouse)
         {
-            if (id != warehouse.Id)
-                return BadRequest();
+            
 
             var existingWarehouse = _warehouseService.GetWarehouseById(id);
             if (existingWarehouse == null)

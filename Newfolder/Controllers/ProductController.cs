@@ -38,6 +38,7 @@ namespace MIS.Controllers
         public IActionResult CreateProduct(Product product)
         {
             Author author=_authorService.GetAuthorById(product.Authorobj.Id.Value);
+            product.Authorobj=author;
 
             _productService.CreateProduct(product);
             return CreatedAtAction(nameof(GetProductById), new { id = product.Id }, product);
@@ -46,8 +47,7 @@ namespace MIS.Controllers
         [HttpPut("{id}")]
         public IActionResult UpdateProduct(int id, Product product)
         {
-            if (id != product.Id)
-                return BadRequest();
+            
 
             var existingProduct = _productService.GetProductById(id);
             if (existingProduct == null)

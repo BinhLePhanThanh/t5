@@ -54,8 +54,7 @@ namespace MIS.Controllers
         [HttpPut("{id}")]
         public IActionResult UpdateStatistic(int id, Statistic statistic)
         {
-            if (id != statistic.Id)
-                return BadRequest();
+           
 
             var existingStatistic = _statisticService.GetStatisticById(id);
             if (existingStatistic == null)

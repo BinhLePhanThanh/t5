@@ -46,11 +46,7 @@ namespace MIS.Controllers
         [HttpPut("{id}")]
         public IActionResult UpdateAuthor(int id, Author updatedAuthor)
         {
-            if (id != updatedAuthor.Id)
-            {
-                return BadRequest();
-            }
-
+            
             var author = _authorService.GetAuthorById(id);
 
             if (author == null)

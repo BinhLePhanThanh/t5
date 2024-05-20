@@ -7,7 +7,7 @@
         public DateTime? BirthDate { get; set; }
         public string? Address { get; set; }
         public string? Genre { get; set; }
-        public bool? Status { get; set; }
+        public bool? Status { get; set; } = true;
         List<Product>? Products { get; set; }
     }
 }
